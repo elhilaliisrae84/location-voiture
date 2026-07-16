@@ -1,9 +1,8 @@
 // src/data/cars.js
 
-// Modèles regroupés par type de voiture
 const carModels = [
   // Berlines
-  { brand: "Porshe", model: "Macan", type: "Berline" },
+  { brand: "Toyota", model: "Corolla", type: "Berline" },
   { brand: "BMW", model: "Série 3", type: "Berline" },
   { brand: "Mercedes", model: "Classe C", type: "Berline" },
   { brand: "Audi", model: "A4", type: "Berline" },
@@ -26,7 +25,7 @@ const carModels = [
   { brand: "Kia", model: "Picanto", type: "Citadine" },
   { brand: "Mini", model: "Cooper", type: "Citadine" },
 
-    // SUV
+  // SUV
   { brand: "Peugeot", model: "3008", type: "SUV" },
   { brand: "Dacia", model: "Duster", type: "SUV" },
   { brand: "Volkswagen", model: "Tiguan", type: "SUV" },
@@ -71,7 +70,6 @@ const carModels = [
   { brand: "Citroën", model: "Berlingo", type: "Utilitaire" },
 ];
 
-// Images regroupées par type (pour que la photo corresponde au moins à la catégorie)
 const imagesByType = {
   "Berline": [
     "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600",
@@ -103,7 +101,6 @@ const imagesByType = {
   ],
 };
 
-// Fourchette de prix par type (min, max)
 const priceRangeByType = {
   "Citadine": [25, 40],
   "Compacte": [35, 55],
@@ -114,7 +111,6 @@ const priceRangeByType = {
   "Utilitaire": [40, 70],
 };
 
-// Génère automatiquement les 50 voitures à partir des listes ci-dessus
 const cars = carModels.map((car, index) => {
   const [minPrice, maxPrice] = priceRangeByType[car.type];
   const pricePerDay = minPrice + ((index * 7) % (maxPrice - minPrice + 1));
@@ -128,7 +124,7 @@ const cars = carModels.map((car, index) => {
 
   const transmission = index % 3 === 0 ? "Manuelle" : "Automatique";
   const fuel = index % 4 === 0 ? "Essence" : index % 4 === 1 ? "Diesel" : index % 4 === 2 ? "Hybride" : "Électrique";
-  const available = index % 9 !== 0; // quelques voitures indisponibles pour varier
+  const available = index % 9 !== 0;
 
   return {
     id: index + 1,
