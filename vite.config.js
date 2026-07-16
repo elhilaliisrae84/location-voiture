@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico'],
       manifest: {
-        name: 'LocaCar - Location de voitures',
-        short_name: 'LocaCar',
+       name: 'SAM Service - Location de voitures',
+short_name: 'SAM Service',
         description: 'Application de gestion de location de voitures',
         theme_color: '#0f172a',
         background_color: '#0f172a',
