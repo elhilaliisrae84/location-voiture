@@ -1,109 +1,148 @@
 // src/data/cars.js
-const cars = [
-  {
-    id: 1,
-    brand: "Toyota",
-    model: "Corolla",
-    type: "Berline",
-    pricePerDay: 45,
-    transmission: "Automatique",
-    seats: 5,
-    fuel: "Essence",
-    available: true,
-    image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600",
-    description: "Une berline fiable, économique et confortable, idéale pour la ville comme pour la route."
-  },
-  {
-    id: 2,
-    brand: "BMW",
-    model: "Série 3",
-    type: "Berline sportive",
-    pricePerDay: 90,
-    transmission: "Automatique",
-    seats: 5,
-    fuel: "Diesel",
-    available: true,
-    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600",
-    description: "Puissance et élégance réunies pour un trajet confortable et dynamique."
-  },
-  {
-    id: 3,
-    brand: "Renault",
-    model: "Clio",
-    type: "Citadine",
-    pricePerDay: 30,
-    transmission: "Manuelle",
-    seats: 5,
-    fuel: "Essence",
-    available: true,
-    image: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=600",
-    description: "Compacte et économique, parfaite pour se déplacer en ville."
-  },
-  {
-    id: 4,
-    brand: "Mercedes",
-    model: "Classe C",
-    type: "Berline luxe",
-    pricePerDay: 110,
-    transmission: "Automatique",
-    seats: 5,
-    fuel: "Diesel",
-    available: false,
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600",
-    description: "Le confort premium pour vos déplacements professionnels ou personnels."
-  },
-  {
-    id: 5,
-    brand: "Peugeot",
-    model: "3008",
-    type: "SUV",
-    pricePerDay: 65,
-    transmission: "Automatique",
-    seats: 5,
-    fuel: "Diesel",
-    available: true,
-    image: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=600",
-    description: "Un SUV spacieux et polyvalent, parfait pour les familles et les longs trajets."
-  },
-  {
-    id: 6,
-    brand: "Volkswagen",
-    model: "Golf",
-    type: "Compacte",
-    pricePerDay: 40,
-    transmission: "Manuelle",
-    seats: 5,
-    fuel: "Essence",
-    available: true,
-    image: "https://images.unsplash.com/photo-1471479917193-f00955256257?w=600",
-    description: "La référence des compactes : fiable, agréable à conduire et économique."
-  },
-  {
-    id: 7,
-    brand: "Audi",
-    model: "A5 Cabriolet",
-    type: "Cabriolet",
-    pricePerDay: 130,
-    transmission: "Automatique",
-    seats: 4,
-    fuel: "Essence",
-    available: true,
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600",
-    description: "Élégance et sensations de conduite décapotable pour les beaux jours."
-  },
-  {
-    id: 8,
-    brand: "Fiat",
-    model: "500",
-    type: "Citadine",
-    pricePerDay: 28,
-    transmission: "Manuelle",
-    seats: 4,
-    fuel: "Essence",
-    available: true,
-    image: "https://images.unsplash.com/photo-1541443131876-44b03de101c5?w=600",
-    description: "Style italien et petit budget, idéale pour circuler facilement en ville."
-  }
+
+// Modèles regroupés par type de voiture
+const carModels = [
+  // Berlines
+  { brand: "Porshe", model: "Macan", type: "Berline" },
+  { brand: "BMW", model: "Série 3", type: "Berline" },
+  { brand: "Mercedes", model: "Classe C", type: "Berline" },
+  { brand: "Audi", model: "A4", type: "Berline" },
+  { brand: "Skoda", model: "Octavia", type: "Berline" },
+  { brand: "Peugeot", model: "508", type: "Berline" },
+  { brand: "Volkswagen", model: "Passat", type: "Berline" },
+  { brand: "Hyundai", model: "Elantra", type: "Berline" },
+  { brand: "Kia", model: "Ceed", type: "Berline" },
+  { brand: "Ford", model: "Mondeo", type: "Berline" },
+
+  // Citadines
+  { brand: "Renault", model: "Clio", type: "Citadine" },
+  { brand: "Fiat", model: "500", type: "Citadine" },
+  { brand: "Volkswagen", model: "Polo", type: "Citadine" },
+  { brand: "Peugeot", model: "208", type: "Citadine" },
+  { brand: "Opel", model: "Corsa", type: "Citadine" },
+  { brand: "Citroën", model: "C3", type: "Citadine" },
+  { brand: "Toyota", model: "Yaris", type: "Citadine" },
+  { brand: "Hyundai", model: "i10", type: "Citadine" },
+  { brand: "Kia", model: "Picanto", type: "Citadine" },
+  { brand: "Mini", model: "Cooper", type: "Citadine" },
+
+    // SUV
+  { brand: "Peugeot", model: "3008", type: "SUV" },
+  { brand: "Dacia", model: "Duster", type: "SUV" },
+  { brand: "Volkswagen", model: "Tiguan", type: "SUV" },
+  { brand: "Nissan", model: "Qashqai", type: "SUV" },
+  { brand: "Renault", model: "Kadjar", type: "SUV" },
+  { brand: "Hyundai", model: "Tucson", type: "SUV" },
+  { brand: "Kia", model: "Sportage", type: "SUV" },
+  { brand: "Toyota", model: "RAV4", type: "SUV" },
+  { brand: "Ford", model: "Kuga", type: "SUV" },
+  { brand: "Skoda", model: "Kodiaq", type: "SUV" },
+  { brand: "Porsche", model: "Macan 4S", type: "SUV" },
+  { brand: "Polestar", model: "4 Rear Motor", type: "SUV" },
+  { brand: "CUPRA", model: "Terramar", type: "SUV" },
+  { brand: "CUPRA", model: "Formentor", type: "SUV" },
+
+  // Sportives
+  { brand: "Porsche", model: "911", type: "Sportive" },
+  { brand: "Audi", model: "TT", type: "Sportive" },
+  { brand: "BMW", model: "M4", type: "Sportive" },
+  { brand: "Chevrolet", model: "Camaro", type: "Sportive" },
+  { brand: "Ford", model: "Mustang", type: "Sportive" },
+
+  // Cabriolets
+  { brand: "Audi", model: "A5 Cabriolet", type: "Cabriolet" },
+  { brand: "BMW", model: "Série 4 Cabriolet", type: "Cabriolet" },
+  { brand: "Mercedes", model: "Classe C Cabriolet", type: "Cabriolet" },
+  { brand: "Mini", model: "Cooper Cabriolet", type: "Cabriolet" },
+  { brand: "Peugeot", model: "208 CC", type: "Cabriolet" },
+
+  // Compactes
+  { brand: "Volkswagen", model: "Golf", type: "Compacte" },
+  { brand: "Ford", model: "Focus", type: "Compacte" },
+  { brand: "Opel", model: "Astra", type: "Compacte" },
+  { brand: "Seat", model: "Leon", type: "Compacte" },
+  { brand: "Renault", model: "Mégane", type: "Compacte" },
+
+  // Utilitaires
+  { brand: "Renault", model: "Trafic", type: "Utilitaire" },
+  { brand: "Peugeot", model: "Partner", type: "Utilitaire" },
+  { brand: "Fiat", model: "Ducato", type: "Utilitaire" },
+  { brand: "Mercedes", model: "Vito", type: "Utilitaire" },
+  { brand: "Citroën", model: "Berlingo", type: "Utilitaire" },
 ];
+
+// Images regroupées par type (pour que la photo corresponde au moins à la catégorie)
+const imagesByType = {
+  "Berline": [
+    "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600",
+    "https://images.unsplash.com/photo-1493238792000-8113da705763?w=600",
+  ],
+  "Citadine": [
+    "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=600",
+    "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600",
+  ],
+  "SUV": [
+    "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600",
+    "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600",
+  ],
+  "Sportive": [
+    "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600",
+    "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600",
+  ],
+  "Cabriolet": [
+    "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600",
+    "https://images.unsplash.com/photo-1493238792000-8113da705763?w=600",
+  ],
+  "Compacte": [
+    "https://images.unsplash.com/photo-1471479917193-f00955256257?w=600",
+    "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600",
+  ],
+  "Utilitaire": [
+    "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=600",
+    "https://images.unsplash.com/photo-1567818735868-e71b99932e29?w=600",
+  ],
+};
+
+// Fourchette de prix par type (min, max)
+const priceRangeByType = {
+  "Citadine": [25, 40],
+  "Compacte": [35, 55],
+  "Berline": [45, 90],
+  "SUV": [55, 100],
+  "Cabriolet": [90, 150],
+  "Sportive": [150, 250],
+  "Utilitaire": [40, 70],
+};
+
+// Génère automatiquement les 50 voitures à partir des listes ci-dessus
+const cars = carModels.map((car, index) => {
+  const [minPrice, maxPrice] = priceRangeByType[car.type];
+  const pricePerDay = minPrice + ((index * 7) % (maxPrice - minPrice + 1));
+
+  const images = imagesByType[car.type];
+  const image = images[index % images.length];
+
+  const seats = car.type === "Sportive" || car.type === "Cabriolet" ? 4
+    : car.type === "Utilitaire" ? 3
+    : 5;
+
+  const transmission = index % 3 === 0 ? "Manuelle" : "Automatique";
+  const fuel = index % 4 === 0 ? "Essence" : index % 4 === 1 ? "Diesel" : index % 4 === 2 ? "Hybride" : "Électrique";
+  const available = index % 9 !== 0; // quelques voitures indisponibles pour varier
+
+  return {
+    id: index + 1,
+    brand: car.brand,
+    model: car.model,
+    type: car.type,
+    pricePerDay,
+    transmission,
+    seats,
+    fuel,
+    available,
+    image,
+    description: `${car.brand} ${car.model} : une ${car.type.toLowerCase()} idéale pour vos déplacements, alliant confort et fiabilité.`,
+  };
+});
 
 export default cars;
